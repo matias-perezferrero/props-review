@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Dashboard from "./components/Dashboard";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      greeting: "Whaddup people"
+    };
+  }
+
+  handleHello = () => {
+    console.log(this.state.greeting);
+  };
+
+  addToCart = () => {
+    console.log("howdy");
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <Dashboard function={this.handleHello} />
+        <Dashboard function={this.addToCart} />
+      </div>
+    );
+  }
 }
 
 export default App;
